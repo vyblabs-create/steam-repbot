@@ -37,26 +37,33 @@ if "!PROFILE_URL!"=="" (
     exit /b 1
 )
 
+:: URL'deki bosluklari tamamen sil
+set "PROFILE_URL=!PROFILE_URL: =!"
 :: Sondaki / varsa temizle
 if "!PROFILE_URL:~-1!"=="/" set "PROFILE_URL=!PROFILE_URL:~0,-1!"
 
 :: ============================================================
-::  ADIM 2: Profil ID'yi URL'den otomatik cek (PowerShell)
+::  ADIM 2: Profil ID'yi URL'den otomatik cek
 :: ============================================================
 echo.
 echo  [2/4]  Profil ID'niz tespit ediliyor...
 
-for /f "delims=" %%I in ('powershell -NoProfile -Command ^
-    "$url = '!PROFILE_URL!'; ^
-     if ($url -match '/id/([^/?]+)') { $matches[1] } ^
-     elseif ($url -match '/profiles/([^/?]+)') { $matches[1] } ^
-     else { 'UNKNOWN' }"') do set "PROFILE_ID=%%I"
+set "PROFILE_ID=UNKNOWN"
+set "TEMP_URL=!PROFILE_URL!"
+set "TEMP_URL=!TEMP_URL:https://steamcommunity.com/id/=!"
+set "TEMP_URL=!TEMP_URL:https://steamcommunity.com/profiles/=!"
+
+if not "!TEMP_URL!"=="!PROFILE_URL!" (
+    set "PROFILE_ID=!TEMP_URL!"
+)
 
 if "!PROFILE_ID!"=="UNKNOWN" (
     echo.
     echo  [UYARI] Profil ID otomatik tespit edilemedi.
     set /p "PROFILE_ID=  > Profil ID'nizi manuel girin: "
 )
+:: Profil ID'deki olasi bosluklari da sil
+set "PROFILE_ID=!PROFILE_ID: =!"
 
 echo.
 echo         -  Profil URL  : !PROFILE_URL!
@@ -68,11 +75,7 @@ echo.
 :: ============================================================
 echo  [3/4]  Ayarlar yapilandiriliyor...
 
-powershell -NoProfile -Command ^
-    "(Get-Content 'src\2_config.js' -Raw) ^
-     -replace '__DASHBOARD_URL__', '!PROFILE_URL!' ^
-     -replace '__PROFILE_ID__',    '!PROFILE_ID!' ^
-     | Set-Content 'src\2_config.js' -Encoding UTF8"
+powershell -NoProfile -Command "(Get-Content 'src\2_config.js' -Raw) -replace '__DASHBOARD_URL__', '!PROFILE_URL!' -replace '__PROFILE_ID__', '!PROFILE_ID!' | Set-Content 'src\2_config.js' -Encoding UTF8"
 
 if errorlevel 1 (
     echo.
