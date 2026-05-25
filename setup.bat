@@ -102,6 +102,18 @@ set "SCRIPT_PATH=%cd%\RepBot.user.js"
 set "BROWSER_FOUND=0"
 
 :: Chrome (Oncelik 1)
+if exist "%ProgramFiles%\Google\Chrome\Application\chrome.exe" (
+    set "BROWSER_EXE=%ProgramFiles%\Google\Chrome\Application\chrome.exe"
+    set "BROWSER_NAME=Google Chrome"
+    set "BROWSER_FOUND=1"
+    goto :open_browser
+)
+if exist "%ProgramFiles(x86)%\Google\Chrome\Application\chrome.exe" (
+    set "BROWSER_EXE=%ProgramFiles(x86)%\Google\Chrome\Application\chrome.exe"
+    set "BROWSER_NAME=Google Chrome"
+    set "BROWSER_FOUND=1"
+    goto :open_browser
+)
 if exist "%LocalAppData%\Google\Chrome\Application\chrome.exe" (
     set "BROWSER_EXE=%LocalAppData%\Google\Chrome\Application\chrome.exe"
     set "BROWSER_NAME=Google Chrome"
@@ -170,6 +182,9 @@ if "!BROWSER_FOUND!"=="0" (
     explorer .
 )
 
+:: Kodlari panoya kopyala
+clip < RepBot.user.js
+
 :: ============================================================
 ::  TAMAMLANDI
 :: ============================================================
@@ -182,6 +197,9 @@ echo   Profil  : !PROFILE_URL!
 echo.
 echo   Sonraki adimlar:
 echo    1. Acilan tarayicida 'Yukle' butonuna tiklayin
+echo       (Eger yukleme ekrani gelmediyse: Tampermonkey'de 
+echo        'Yeni Betik Ekle' deyin ve CTRL+V ile yapistirin. 
+echo        Kodlar otomatik olarak panoya kopyalandi!)
 echo    2. Steam profilinize gidin (F5 ile sayfayi yenileyin)
 echo    3. Sol ustteki REP KONTROL MERKEZI butonuna tiklayin
 echo    4. 'Profil Botunu Baslat' ile sistemi calistirin
