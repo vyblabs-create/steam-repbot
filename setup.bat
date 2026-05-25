@@ -71,18 +71,11 @@ echo         -  Profil ID   : !PROFILE_ID!
 echo.
 
 :: ============================================================
-::  ADIM 3: 2_config.js icindeki placeholder'lari doldur
+::  ADIM 3: 2_config.js'i template'dan olustur ve doldur
 :: ============================================================
 echo  [3/4]  Ayarlar yapilandiriliyor...
 
-powershell -NoProfile -Command "(Get-Content 'src\2_config.js' -Raw) -replace '__DASHBOARD_URL__', '!PROFILE_URL!' -replace '__PROFILE_ID__', '!PROFILE_ID!' | Set-Content 'src\2_config.js' -Encoding UTF8"
-
-if errorlevel 1 (
-    echo.
-    echo  [HATA] Ayarlar yazilamadi. Klasor izinlerini kontrol edin.
-    pause
-    exit /b 1
-)
+powershell -NoProfile -Command "(Get-Content 'src\2_config.template.js' -Raw) -replace '__DASHBOARD_URL__', '!PROFILE_URL!' -replace '__PROFILE_ID__', '!PROFILE_ID!' | Set-Content 'src\2_config.js' -Encoding UTF8"
 
 echo         -  Konfigurasyon guncellendi.
 echo.
@@ -160,15 +153,16 @@ if "!BROWSER_FOUND!"=="1" (
     echo  [Tampermonkey yukluyse] "Yukle" butonuna tiklayin.
     echo.
     start "" "!BROWSER_EXE!" --allow-file-access-from-files "file:///!SCRIPT_PATH:\=/!"
-) else if "!BROWSER_FOUND!"=="2" (
-    echo         -  Microsoft Edge bulundu (sinirli destek).
+)
+if "!BROWSER_FOUND!"=="2" (
+    echo         -  Microsoft Edge bulundu.
     echo.
-    echo  [UYARI] Edge yerel dosyalari yuklemeyi engelleyebilir.
-    echo  Edge aciliyor, 'Uzanti' uyarisini gorurseniz;
-    echo  Tampermonkey eklentisini Edge'e yukleyip tekrar deneyin.
+    echo  [BILGI] Edge yerel dosyalari engelleyebilir, uyari gorurseniz
+    echo  Tampermonkey eklentisini kontrol edin.
     echo.
     start "" "!BROWSER_EXE!" --allow-file-access-from-files "file:///!SCRIPT_PATH:\=/!"
-) else (
+)
+if "!BROWSER_FOUND!"=="0" (
     echo.
     echo  [UYARI] Desteklenen tarayici bulunamadi.
     echo  Lutfen 'RepBot.user.js' dosyasini tarayiciniza manuel surukleyin.

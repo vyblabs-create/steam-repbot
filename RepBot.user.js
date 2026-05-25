@@ -14,43 +14,43 @@
 
  
 ﻿    // =========================================================================
-    // 1. SÄ°STEM AYARLARI VE YAPILANDIRMA
-    // NOT: Bu deÄŸerler setup.bat tarafÄ±ndan otomatik doldurulur.
-    //      Manuel deÄŸiÅŸtirmek isterseniz __PLACEHOLDER__ deÄŸerlerini deÄŸiÅŸtirin.
+    // 1. SÃ„Â°STEM AYARLARI VE YAPILANDIRMA
+    // NOT: Bu deÃ„Å¸erler setup.bat tarafÃ„Â±ndan otomatik doldurulur.
+    //      Manuel deÃ„Å¸iÃ…Å¸tirmek isterseniz __PLACEHOLDER__ deÃ„Å¸erlerini deÃ„Å¸iÃ…Å¸tirin.
     // =========================================================================
     const DEFAULT_AYARLAR = {
-        anaProfilId:   "UNKNOWN",
-        dashboardUrl:  "https://steamcommunity.com/id/v3cna1998/ ",
+        anaProfilId:   "v3cna1998",
+        dashboardUrl:  "https://steamcommunity.com/id/v3cna1998",
         trendUrl:      "https://steamcommunity.com/app/730/guides/?searchText=&browsefilter=trend&browsesort=creationorder&requiredtags%5B%5D=-1",
 
-        // Profil botu mola sÃ¼releri (saniye)
+        // Profil botu mola sÃƒÂ¼releri (saniye)
         profilMolaMin: 120,
         profilMolaMax: 300,
         profilCeza:    7200,
 
-        // Rehber botu mola sÃ¼releri (saniye)
+        // Rehber botu mola sÃƒÂ¼releri (saniye)
         rehberMolaMin: 300,
         rehberMolaMax: 600,
         rehberCeza:    7200,
 
-        // Humanoid yazma hÄ±zÄ± (saniye x10 = ms)
+        // Humanoid yazma hÃ„Â±zÃ„Â± (saniye x10 = ms)
         yazmaHiziMin:  3,
         yazmaHiziMax:  7,
 
-        // Rehber okuma sÃ¼resi (saniye)
+        // Rehber okuma sÃƒÂ¼resi (saniye)
         okumaHiziMin:  4,
         okumaHiziMax:  10,
 
-        // Profile geÃ§iÅŸ hÄ±zÄ± (saniye)
+        // Profile geÃƒÂ§iÃ…Å¸ hÃ„Â±zÃ„Â± (saniye)
         profileGecisMin: 3,
         profileGecisMax: 8,
 
-        // Klavye odaklanma sÃ¼resi (saniye)
+        // Klavye odaklanma sÃƒÂ¼resi (saniye)
         klavyeOdakMin: 2,
         klavyeOdakMax: 5
     };
 
-    // localStorage'dan kayÄ±tlÄ± ayarlarÄ± yÃ¼kle (panel Ã¼zerinden deÄŸiÅŸtirilenler)
+    // localStorage'dan kayÃ„Â±tlÃ„Â± ayarlarÃ„Â± yÃƒÂ¼kle (panel ÃƒÂ¼zerinden deÃ„Å¸iÃ…Å¸tirilenler)
     let kayitliAyarlar = {};
     try { kayitliAyarlar = JSON.parse(localStorage.getItem('repbot_v9_ayarlar') || '{}'); } catch(e) {}
     const AYARLAR = { ...DEFAULT_AYARLAR, ...kayitliAyarlar };
@@ -79,10 +79,12 @@
     ];
 
     const rehberYorumHavuzu = [
-        `[REP 4 REP INSTANTLY - I AM ONLINE]\nENG: Choose one from the list below and write on my profile, I will return it instantly!\nTR: AÅŸaÄŸÄ±daki listeden birini seÃ§in ve profilime yazÄ±n, anÄ±nda karÅŸÄ±lÄ±k vereceÄŸim!\n+rep good player\n+rep friendly guy\n+rep good teammate`,
-        `[FAST REP 4 REP! ONLINE & RESPONDING]\nENG: Copy one of these and paste it on my profile, I will do the same for you!\nTR: Bunlardan birini kopyalayÄ±p profilime yapÄ±ÅŸtÄ±rÄ±n, aynÄ±sÄ±nÄ± size geri dÃ¶neceÄŸim!\n+rep clutch king\n+rep insane aim\n+rep godly AWPer`,
-        `[REP 4 REP - RETURN 100%]\nENG: Drop one of these comments on my profile and get a fast +rep back!\nTR: Profilime bu yorumlardan birini bÄ±rakÄ±n, anÄ±nda +rep ile geri dÃ¶neyim!\n+rep nice and non-toxic player\n+rep carry machine\n+rep best igl`
+        `[REP 4 REP INSTANTLY - I AM ONLINE]\nENG: Choose one from the list below and write on my profile, I will return it instantly!\nTR: AÃ…Å¸aÃ„Å¸Ã„Â±daki listeden birini seÃƒÂ§in ve profilime yazÃ„Â±n, anÃ„Â±nda karÃ…Å¸Ã„Â±lÃ„Â±k vereceÃ„Å¸im!\n+rep good player\n+rep friendly guy\n+rep good teammate`,
+        `[FAST REP 4 REP! ONLINE & RESPONDING]\nENG: Copy one of these and paste it on my profile, I will do the same for you!\nTR: Bunlardan birini kopyalayÃ„Â±p profilime yapÃ„Â±Ã…Å¸tÃ„Â±rÃ„Â±n, aynÃ„Â±sÃ„Â±nÃ„Â± size geri dÃƒÂ¶neceÃ„Å¸im!\n+rep clutch king\n+rep insane aim\n+rep godly AWPer`,
+        `[REP 4 REP - RETURN 100%]\nENG: Drop one of these comments on my profile and get a fast +rep back!\nTR: Profilime bu yorumlardan birini bÃ„Â±rakÃ„Â±n, anÃ„Â±nda +rep ile geri dÃƒÂ¶neyim!\n+rep nice and non-toxic player\n+rep carry machine\n+rep best igl`
     ];
+
+
 
 
 
