@@ -1,0 +1,17 @@
+# Geçici dosyalar
+*.tmp
+*.log
+
+# Editör klasörleri
+.vscode/
+.idea/
+
+# OS dosyaları
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Eski dosyalar (artık src/ içinde)
+konsolhata.md
+örnekbetik
+görev.md
