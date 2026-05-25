@@ -108,7 +108,7 @@ echo.
 set "SCRIPT_PATH=%cd%\RepBot.user.js"
 set "BROWSER_FOUND=0"
 
-:: Chrome
+:: Chrome (Oncelik 1)
 if exist "%LocalAppData%\Google\Chrome\Application\chrome.exe" (
     set "BROWSER_EXE=%LocalAppData%\Google\Chrome\Application\chrome.exe"
     set "BROWSER_NAME=Google Chrome"
@@ -116,21 +116,15 @@ if exist "%LocalAppData%\Google\Chrome\Application\chrome.exe" (
     goto :open_browser
 )
 
-:: Edge
-if exist "%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe" (
-    set "BROWSER_EXE=%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe"
-    set "BROWSER_NAME=Microsoft Edge"
-    set "BROWSER_FOUND=1"
-    goto :open_browser
-)
-if exist "%ProgramFiles%\Microsoft\Edge\Application\msedge.exe" (
-    set "BROWSER_EXE=%ProgramFiles%\Microsoft\Edge\Application\msedge.exe"
-    set "BROWSER_NAME=Microsoft Edge"
+:: Brave (Oncelik 2)
+if exist "%LocalAppData%\BraveSoftware\Brave-Browser\Application\brave.exe" (
+    set "BROWSER_EXE=%LocalAppData%\BraveSoftware\Brave-Browser\Application\brave.exe"
+    set "BROWSER_NAME=Brave"
     set "BROWSER_FOUND=1"
     goto :open_browser
 )
 
-:: Firefox
+:: Firefox (Oncelik 3)
 if exist "%ProgramFiles%\Mozilla Firefox\firefox.exe" (
     set "BROWSER_EXE=%ProgramFiles%\Mozilla Firefox\firefox.exe"
     set "BROWSER_NAME=Mozilla Firefox"
@@ -144,11 +138,17 @@ if exist "%ProgramFiles(x86)%\Mozilla Firefox\firefox.exe" (
     goto :open_browser
 )
 
-:: Brave
-if exist "%LocalAppData%\BraveSoftware\Brave-Browser\Application\brave.exe" (
-    set "BROWSER_EXE=%LocalAppData%\BraveSoftware\Brave-Browser\Application\brave.exe"
-    set "BROWSER_NAME=Brave"
-    set "BROWSER_FOUND=1"
+:: Edge (Son Care - yerel dosyalara izin vermez!)
+if exist "%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe" (
+    set "BROWSER_EXE=%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe"
+    set "BROWSER_NAME=Microsoft Edge"
+    set "BROWSER_FOUND=2"
+    goto :open_browser
+)
+if exist "%ProgramFiles%\Microsoft\Edge\Application\msedge.exe" (
+    set "BROWSER_EXE=%ProgramFiles%\Microsoft\Edge\Application\msedge.exe"
+    set "BROWSER_NAME=Microsoft Edge"
+    set "BROWSER_FOUND=2"
     goto :open_browser
 )
 
@@ -159,7 +159,15 @@ if "!BROWSER_FOUND!"=="1" (
     echo  Tampermonkey kurulum penceresi aciliyor...
     echo  [Tampermonkey yukluyse] "Yukle" butonuna tiklayin.
     echo.
-    start "" "!BROWSER_EXE!" "file:///!SCRIPT_PATH:\=/!"
+    start "" "!BROWSER_EXE!" --allow-file-access-from-files "file:///!SCRIPT_PATH:\=/!"
+) else if "!BROWSER_FOUND!"=="2" (
+    echo         -  Microsoft Edge bulundu (sinirli destek).
+    echo.
+    echo  [UYARI] Edge yerel dosyalari yuklemeyi engelleyebilir.
+    echo  Edge aciliyor, 'Uzanti' uyarisini gorurseniz;
+    echo  Tampermonkey eklentisini Edge'e yukleyip tekrar deneyin.
+    echo.
+    start "" "!BROWSER_EXE!" --allow-file-access-from-files "file:///!SCRIPT_PATH:\=/!"
 ) else (
     echo.
     echo  [UYARI] Desteklenen tarayici bulunamadi.
