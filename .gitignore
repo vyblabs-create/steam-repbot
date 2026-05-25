@@ -2,6 +2,9 @@
 *.tmp
 *.log
 
+# Kullaniciya ozel derlenmis script (setup.bat tarafindan uretilir)
+RepBot.user.js
+
 # Editör klasörleri
 .vscode/
 .idea/
