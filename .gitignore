@@ -1,23 +1,23 @@
-# Geçici dosyalar
-*.tmp
+# Logs
+logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Kullaniciya ozel derlenmis script (setup.bat tarafindan uretilir)
-RepBot.user.js
+node_modules
+dist-ssr
+*.local
 
-# Editör klasörleri
-.vscode/
-.idea/
-
-# OS dosyaları
-Thumbs.db
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
-desktop.ini
-
-# Eski dosyalar (artık src/ içinde)
-konsolhata.md
-örnekbetik
-görev.md
-
-# Github yardımcı dosyası
-github.md
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

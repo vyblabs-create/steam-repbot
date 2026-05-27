@@ -1,166 +1,62 @@
-# 🎯 Steam RepBot Pro
-
 <div align="center">
+  
+# 🤖 RepBot Pro V3 
+**Profesyonel Steam Rep Takas Otomasyonu (SaaS)**
 
-![Version](https://img.shields.io/badge/version-9.0-blue?style=for-the-badge)
-![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
-![Platform](https://img.shields.io/badge/platform-Windows-lightgrey?style=for-the-badge)
-![Tampermonkey](https://img.shields.io/badge/Tampermonkey-4.x%2B-orange?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-3.0.0-blue.svg?style=for-the-badge&logo=appveyor)
+![Status](https://img.shields.io/badge/Status-Active-success.svg?style=for-the-badge)
+![Platform](https://img.shields.io/badge/Platform-Google_Chrome-yellow.svg?style=for-the-badge&logo=google-chrome)
 
-**Steam'de rep takasını tamamen otomatikleştiren, ban riskini minimize eden, humanoid motor kullanan profesyonel userscript.**
+*Tamamen insanlaştırılmış (humanoid) algoritmalarla profilinize gelen replere otomatik karşılık verir ve CS2 trend rehberlerinden profilinize organik trafik çeker.*
 
 </div>
 
 ---
 
-## 📌 Ne İşe Yarar?
+## ⚡ Özellikler
 
-Steam üzerinde rep (yorum) takasını otomatikleştiren bir araçtır. Manuel işlem yapmak yerine:
-
-- 🤖 **Profil Botu** — Profilinize rep bırakan kullanıcıları tespit eder ve onların profiline gidip karşılıklı rep bırakır
-- 📚 **Rehber Botu** — CS2 trend rehberlere giderek rep ilanı yayınlar ve yeni müşteri çeker
-- 🛡️ **Rate Limit Koruması** — Steam'in ban mekanizmasını gerçek zamanlı izler, renge kodlanmış risk göstergesi sunar
-- 🧠 **Humanoid Motor** — Gerçek klavye davranışı simüle eder; hız, duraklama ve karakterler arası süre rastgele ayarlanır
-
----
-
-## ⚡ Kurulum (3 Adım)
-
-### Gereksinimler
-- Windows 10/11
-- Herhangi bir modern tarayıcı (Chrome, Edge, Firefox, Brave)
-- [Tampermonkey](https://www.tampermonkey.net/) uzantısı (tarayıcınıza yükleyin)
-
-### Adımlar
-
-**1.** Bu repoyu indirin (Yeşil "Code" → "Download ZIP") ve klasörü açın.
-
-**2.** `setup.bat` dosyasına **çift tıklayın**. Sihirbaz şunları soracak:
-```
-Steam profil linkinizi girin:
-> https://steamcommunity.com/id/kullaniciadiniz
-```
-Profil linkinizi yapıştırıp Enter'a basın. Geri kalan her şeyi sihirbaz otomatik halleder:
-- Profil ID'nizi URL'den çeker
-- Ayarları yapılandırır
-- `RepBot.user.js` dosyasını derler
-- Tarayıcınızı açarak Tampermonkey kurulum ekranını gösterir
-
-**3.** Açılan Tampermonkey penceresinde **"Yükle"** butonuna tıklayın.
-
-> ✅ **Bitti!** Steam profilinize gidin. Sol üstte `🎯 REP KONTROL MERKEZİ` butonunu görüyorsanız kurulum başarılıdır.
+- 👤 **Akıllı Profil Botu:** Profilinize +rep yazanları anında tespit eder, onların profiline giderek rastgele emojilerle (🔥👑🎯) insanlaştırılmış yanıtlar bırakır.
+- 📚 **Trend Rehber Motoru:** CS2 topluluk rehberlerindeki en trend içeriklere giderek akıllı +rep takas yorumları atar.
+- 🛡️ **Anti-Ban & Spam Koruması:** Günlük limitler (Hard Cap), dinamik mola süreleri ve "İnsansı Yazma Motoru" ile Steam algoritmalarına takılmaz.
+- 🧠 **Sistem Hafızası:** Önceden yorum yapılan kişileri hatırlar, aynı kişiye veya beyaz listedeki (whitelist) arkadaşlarınıza tekrar yorum atmaz.
+- 🎨 **Modern SaaS Arayüzü:** Canlı grafikler, mola sayaçları, animasyonlu kontrol paneli ve anlık bildirim sistemi (Toast & Masaüstü).
+- 🧪 **Test Modu (Dry Run):** Botun çalışmasını "gönder" butonuna basmadan güvenle simüle edin.
 
 ---
 
-## 🖥️ Kullanım
+## 🛠️ Nasıl Kurulur? (3 Basit Adım)
 
-### Kontrol Paneli
-Sol üstteki `🎯` butonuna tıklayarak paneli açın.
+Chrome Web Mağazası onayı beklemeden, botu saniyeler içinde tarayıcınıza kurabilirsiniz.
 
-| Sekme | İçerik |
-|---|---|
-| 📊 Kontrol Merkezi | Bot başlatma/durdurma, rate limit göstergesi, canlı istatistikler |
-| ⚙️ Ayarlar | Profil URL, mola süreleri, humanoid motor ayarları |
-| 📋 Aktivite | Yapılan işlemlerin zaman damgalı logu |
+### 1. Dosyayı İndirin
+[Buraya Tıklayarak (RepBot_Pro_V3.zip)](#) eklentiyi bilgisayarınıza indirin ve masaüstünde bir klasöre çıkartın.
 
-### Profil Botu'nu Başlatmak
-1. **📊 Kontrol Merkezi** sekmesini açın
-2. **▶ PROFİL BOTUNU BAŞLAT** butonuna tıklayın
-3. Yeni bir sekme açılır ve bot arka planda çalışmaya başlar
-4. İstediğinizde **⏹ DURDUR** butonuyla durdurun
+### 2. Chrome Eklentiler Sayfasını Açın
+Google Chrome'da adres çubuğuna şunu yazıp Enter'a basın:
+> `chrome://extensions/`
 
-### Rehber Botu'nu Başlatmak
-1. **▶ REHBER BOTUNU BAŞLAT** butonuna tıklayın
-2. Bot CS2 trend rehberleri gezer, her birine ilan bırakır
-3. Tur bitince otomatik olarak yeniden başlar
+### 3. Sürükle ve Bırak
+1. Sağ üst köşedeki **"Geliştirici Modu" (Developer Mode)** anahtarını açın.
+2. Masaüstüne çıkarttığınız klasörü tutup, Chrome sayfasının içine sürükleyip bırakın!
+
+🎉 **Tebrikler!** RepBot Pro kuruldu. Tarayıcınızda `Alt + R` kısayoluna basarak veya eklentiler menüsünden ikona tıklayarak kontrol panelini açabilirsiniz.
 
 ---
 
-## 🛡️ Rate Limit ve Ban Koruması
+## ⚙️ Hızlı Başlangıç
 
-**Kontrol Merkezi'ndeki gösterge** sizi gerçek zamanlı uyarır:
-
-| Gösterge | Anlam |
-|---|---|
-| 🟢 DÜŞÜK | < 3 yorum/saat — Tamamen güvenli |
-| 🟡 ORTA | 3–7 yorum/saat — Dikkatli olun |
-| 🔴 YÜKSEK | > 7 yorum/saat — Botu durdurun! |
-
-Sistem ayrıca hata alındığında otomatik olarak bir **ceza süresi** uygular (varsayılan: 2 saat). Bu süre boyunca bot kendiliğinden bekler.
+1. Kontrol panelini açın.
+2. Sizi karşılayan sihirbazı takip ederek **Ayarlar** kısmına kendi **Steam Profil URL**'nizi yapıştırın.
+3. Yorum havuzlarını inceleyin veya dilediğiniz gibi düzenleyin.
+4. **"Tüm Ayarları Kaydet"** dedikten sonra Ana ekrandan botları başlatın!
 
 ---
 
-## ⚙️ Gelişmiş Ayarlar
+## ⚠️ Uyarılar ve Güvenlik
+- **Günlük Limitler:** Ban riskinden korunmak için Günlük Profil hedefini 50, Rehber hedefini 30'un üzerine çıkarmamanız tavsiye edilir. Limitler aşıldığında sistem profilinizi korumak için kendini otomatik dondurur.
+- **Chrome Bildirimleri:** Arka planda çalışırken hata alındığında veya hedef tamamlandığında Chrome üzerinden bildirim alırsınız. Bu nedenle bildirimlere izin verdiğinizden emin olun.
 
-Paneldeki **⚙️ Ayarlar** sekmesinden tüm parametreleri değiştirebilirsiniz:
-
-### Profil Mola Süreleri
-| Ayar | Varsayılan | Açıklama |
-|---|---|---|
-| Mola Min | 2 dk | İki rep arasındaki minimum bekleme |
-| Mola Max | 5 dk | İki rep arasındaki maksimum bekleme |
-| Hata Cezası | 2 saat | Steam hata verince bekleme süresi |
-
-### Humanoid Motor
-| Ayar | Varsayılan | Açıklama |
-|---|---|---|
-| Yazma Min | ~30ms | Tuş vuruşları arası minimum süre |
-| Yazma Max | ~70ms | Tuş vuruşları arası maksimum süre |
-| Odaklanma | 2–5 sn | Textarea'ya tıklama gecikmesi |
-
----
-
-## 📁 Proje Yapısı
-
-```
-repbot/
-├── src/
-│   ├── 1_header.js      # Tampermonkey meta ve IIFE başlangıcı
-│   ├── 2_config.js      # Ayarlar ve yorum havuzları (setup.bat doldurur)
-│   ├── 3_utils.js       # URL yönetimi, metrikler, rate limit hesaplayıcı
-│   ├── 4_ui.js          # Kontrol paneli arayüzü
-│   ├── 5_engine.js      # Humanoid yazma motoru
-│   ├── 6_workers.js     # Profil ve rehber işçi döngüleri
-│   └── 7_main.js        # IIFE kapanışı
-├── setup.bat            # ← Kullanıcının çalıştırdığı tek dosya
-├── build.bat            # Modülleri birleştirici (geliştiriciler için)
-├── RepBot.user.js       # Derlenen hazır script (setup.bat üretir)
-└── README.md
-```
-
-> **Not:** `src/` klasöründeki dosyalar geliştiriciler içindir. Normal kullanım için yalnızca `setup.bat` yeterlidir.
-
----
-
-## 🔧 Geliştirici Notları
-
-Bir modülü değiştirip yeniden derlemek için:
-
-```bat
-build.bat
-```
-
-Ardından `RepBot.user.js` dosyasını Tampermonkey'de güncelleyin.
-
-### localStorage Anahtarları
-| Anahtar | Açıklama |
-|---|---|
-| `repbot_v9_ayarlar` | Kullanıcı ayarları (JSON) |
-| `repbot_v9_stats` | İstatistikler (JSON) |
-| `v9_profil_worker` | Profil botu aktif mi? (true/false) |
-| `v9_rehber_worker` | Rehber botu aktif mi? (true/false) |
-| `repbot_replied_users` | Yanıt verilen kullanıcı listesi |
-| `repbot_current_target` | Aktif hedef profil URL'si |
-| `repbot_guide_queue` | Rehber işleme kuyruğu (JSON array) |
-
----
-
-## ⚠️ Yasal Uyarı
-
-Bu araç yalnızca eğitim ve kişisel kullanım amaçlıdır. Steam'in Kullanım Koşulları'nı ihlal etmek kullanıcının sorumluluğundadır. Geliştirici, bu aracın kullanımından doğacak hiçbir yaptırımdan sorumlu tutulamaz.
-
----
-
-## 📄 Lisans
-
-MIT License — Özgürce kullanın, değiştirin ve paylaşın.
+<div align="center">
+  <br>
+  <i>Kullanıcı güvenliği ve organik büyüme odaklı tasarlanmıştır.</i>
+</div>

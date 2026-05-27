@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Steam RepBot Pro",
+  "version": "3.0.0",
+  "description": "Profesyonel Steam rep takas otomasyonu — insansılaştırılmış, güvenli ve tam kontrollü.",
+  "action": {
+    "default_title": "RepBot Pro — Kontrol Paneli"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://steamcommunity.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "storage",
+    "scripting",
+    "tabs",
+    "activeTab",
+    "notifications"
+  ],
+  "host_permissions": [
+    "*://steamcommunity.com/*"
+  ],
+  "commands": {
+    "open-dashboard": {
+      "suggested_key": {
+        "default": "Alt+R"
+      },
+      "description": "RepBot Kontrol Panelini Aç"
+    }
+  }
+}
