@@ -3,7 +3,7 @@
 # 🤖 RepBot Pro V2 
 **Gelişmiş Steam Etkileşim ve Takas Otomasyonu**
 
-![Version](https://img.shields.io/badge/Version-2.0.1-blue.svg?style=for-the-badge&logo=appveyor)
+![Version](https://img.shields.io/badge/Version-2.0.2-blue.svg?style=for-the-badge&logo=appveyor)
 ![Status](https://img.shields.io/badge/Status-Active-success.svg?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Google_Chrome-yellow.svg?style=for-the-badge&logo=google-chrome)
 

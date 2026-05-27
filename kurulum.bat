@@ -1,7 +1,7 @@
 @echo off
 chcp 65001 >nul
 color 0B
-title RepBot Pro V2.0.1 - Kurulum Asistani
+title RepBot Pro V2.0.2 - Kurulum Asistani
 mode con: cols=90 lines=30
 
 :baslangic
@@ -15,7 +15,7 @@ echo    ██╔══██╗██╔══╝  ██╔═══╝ ██
 echo    ██║  ██║███████╗██║     ██████╔╝╚██████╔╝   ██║      ██║     ██║  ██║╚██████╔╝
 echo    ╚═╝  ╚═╝╚══════╝╚═╝     ╚═════╝  ╚═════╝    ╚═╝      ╚═╝     ╚═╝  ╚═╝ ╚═════╝ 
 echo.
-echo                       Steam Rep Otomasyonu - Versiyon 2.0.1
+echo                       Steam Rep Otomasyonu - Versiyon 2.0.2
 echo ==========================================================================================
 echo.
 echo Sisteme hos geldiniz. Kurulum Asistani, RepBot Pro uzantisini tarayiciniza 
