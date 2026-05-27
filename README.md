@@ -1,9 +1,9 @@
 <div align="center">
   
-# 🤖 RepBot Pro V3 
+# 🤖 RepBot Pro V2 
 **Profesyonel Steam Rep Takas Otomasyonu (SaaS)**
 
-![Version](https://img.shields.io/badge/Version-3.0.0-blue.svg?style=for-the-badge&logo=appveyor)
+![Version](https://img.shields.io/badge/Version-2.0.0-blue.svg?style=for-the-badge&logo=appveyor)
 ![Status](https://img.shields.io/badge/Status-Active-success.svg?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Google_Chrome-yellow.svg?style=for-the-badge&logo=google-chrome)
 
@@ -24,22 +24,22 @@
 
 ---
 
-## 🛠️ Nasıl Kurulur? (3 Basit Adım)
+## 🛠️ Nasıl Kurulur? (Otomatik Sihirbaz)
 
-Chrome Web Mağazası onayı beklemeden, botu saniyeler içinde tarayıcınıza kurabilirsiniz.
+Google Chrome Web Mağazası onayı beklemeden, botu saniyeler içinde tarayıcınıza kurabilirsiniz. Sizler için hazırladığımız **Otomatik Kurulum Sihirbazı** sayesinde işlem çok basittir!
 
-### 1. Dosyayı İndirin
-[Buraya Tıklayarak (RepBot_Pro_V3.zip)](#) eklentiyi bilgisayarınıza indirin ve masaüstünde bir klasöre çıkartın.
+### Adım 1: İndirin
+Sağ üstteki **Code** butonuna tıklayıp **Download ZIP** seçeneğiyle (veya Releases sekmesinden) projeyi indirin ve masaüstünde bir klasöre çıkartın.
 
-### 2. Chrome Eklentiler Sayfasını Açın
-Google Chrome'da adres çubuğuna şunu yazıp Enter'a basın:
-> `chrome://extensions/`
+### Adım 2: Sihirbazı Çalıştırın
+Çıkarttığınız klasörün içindeki **`kurulum.bat`** dosyasına çift tıklayın.
 
-### 3. Sürükle ve Bırak
-1. Sağ üst köşedeki **"Geliştirici Modu" (Developer Mode)** anahtarını açın.
-2. Masaüstüne çıkarttığınız klasörü tutup, Chrome sayfasının içine sürükleyip bırakın!
+### Adım 3: Sürükle ve Bırak
+1. Siyah ekrandaki yönergeleri takip edin, sihirbaz sizin için Chrome eklentiler sayfasını ve ilgili klasörü anında açacaktır.
+2. Sağ üstten **"Geliştirici Modu"nu (Developer Mode)** açın.
+3. Ekranda maviyle seçili olan **`dist`** klasörünü tutup Chrome'un içine sürükleyin!
 
-🎉 **Tebrikler!** RepBot Pro kuruldu. Tarayıcınızda `Alt + R` kısayoluna basarak veya eklentiler menüsünden ikona tıklayarak kontrol panelini açabilirsiniz.
+🎉 **Tebrikler!** Kurulum bitti. Tarayıcınızda `Alt + R` kısayoluna basarak kontrol panelini açabilirsiniz.
 
 ---
 
@@ -54,7 +54,7 @@ Google Chrome'da adres çubuğuna şunu yazıp Enter'a basın:
 
 ## ⚠️ Uyarılar ve Güvenlik
 - **Günlük Limitler:** Ban riskinden korunmak için Günlük Profil hedefini 50, Rehber hedefini 30'un üzerine çıkarmamanız tavsiye edilir. Limitler aşıldığında sistem profilinizi korumak için kendini otomatik dondurur.
-- **Chrome Bildirimleri:** Arka planda çalışırken hata alındığında veya hedef tamamlandığında Chrome üzerinden bildirim alırsınız. Bu nedenle bildirimlere izin verdiğinizden emin olun.
+- **Chrome Bildirimleri:** Arka planda çalışırken hata alındığında veya hedef tamamlandığında Chrome üzerinden bildirim alırsınız. Bildirimlere izin verdiğinizden emin olun.
 
 <div align="center">
   <br>

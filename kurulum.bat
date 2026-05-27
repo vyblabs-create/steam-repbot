@@ -1,6 +1,6 @@
 @echo off
 color 0B
-title RepBot Pro V3 - Otomatik Kurulum Sihirbazi
+title RepBot Pro V2 - Otomatik Kurulum Sihirbazi
 mode con: cols=85 lines=28
 
 :baslangic
@@ -14,7 +14,7 @@ echo    ██╔══██╗██╔══╝  ██╔═══╝ ██
 echo    ██║  ██║███████╗██║     ██████╔╝╚██████╔╝   ██║      ██║     ██║  ██║╚██████╔╝
 echo    ╚═╝  ╚═╝╚══════╝╚═╝     ╚═════╝  ╚═════╝    ╚═╝      ╚═╝     ╚═╝  ╚═╝ ╚═════╝ 
 echo.
-echo                      Steam Takas Otomasyonu - Versiyon 3.0
+echo                      Steam Takas Otomasyonu - Versiyon 2.0
 echo =====================================================================================
 echo.
 echo Merhaba! RepBot Pro kurulum sihirbazina hos geldin.
