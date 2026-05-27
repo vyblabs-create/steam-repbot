@@ -1,11 +1,11 @@
 @echo off
 color 0B
-title RepBot Pro V2 - Otomatik Kurulum Sihirbazi
-mode con: cols=85 lines=28
+title RepBot Pro V2.0.1 - Kurulum Asistani
+mode con: cols=90 lines=30
 
 :baslangic
 cls
-echo =====================================================================================
+echo ==========================================================================================
 echo.
 echo    ██████╗ ███████╗██████╗ ██████╗  ██████╗ ████████╗   ██████╗ ██████╗  ██████╗ 
 echo    ██╔══██╗██╔════╝██╔══██╗██╔══██╗██╔═══██╗╚══██╔══╝   ██╔══██╗██╔══██╗██╔═══██╗
@@ -14,19 +14,20 @@ echo    ██╔══██╗██╔══╝  ██╔═══╝ ██
 echo    ██║  ██║███████╗██║     ██████╔╝╚██████╔╝   ██║      ██║     ██║  ██║╚██████╔╝
 echo    ╚═╝  ╚═╝╚══════╝╚═╝     ╚═════╝  ╚═════╝    ╚═╝      ╚═╝     ╚═╝  ╚═╝ ╚═════╝ 
 echo.
-echo                      Steam Takas Otomasyonu - Versiyon 2.0
-echo =====================================================================================
+echo                       Steam Rep Otomasyonu - Versiyon 2.0.1
+echo ==========================================================================================
 echo.
-echo Merhaba! RepBot Pro kurulum sihirbazina hos geldin.
-echo Sana kurulumda adim adim yardimci olacagim.
+echo Sisteme hos geldiniz. Kurulum Asistani, RepBot Pro uzantisini tarayiciniza 
+echo entegre etmeniz icin size rehberlik edecektir.
 echo.
-echo Lutfen eklentiyi kurmak istediginiz tarayiciyi secin:
-echo [1] Google Chrome
-echo [2] Microsoft Edge
-echo [3] Brave
-echo [4] Opera
+echo Lutfen kurulum yapmak istediginiz tarayiciyi seciniz:
 echo.
-set /p tarayici="Seciminiz (1/2/3/4): "
+echo   [1] Google Chrome
+echo   [2] Microsoft Edge
+echo   [3] Brave
+echo   [4] Opera / Opera GX
+echo.
+set /p tarayici="Tarayici Seciminiz (1/2/3/4): "
 
 if "%tarayici%"=="1" set "browser=chrome" & set "ext_url=chrome://extensions/"
 if "%tarayici%"=="2" set "browser=msedge" & set "ext_url=edge://extensions/"
@@ -36,49 +37,60 @@ if not defined browser goto baslangic
 
 :steam_kontrol
 cls
-echo =====================================================================================
+echo ==========================================================================================
+echo                          ADIM 1: SISTEM KIMLIK DOGRULAMASI
+echo ==========================================================================================
 echo.
-echo %browser% tarayicinizda Steam (steamcommunity.com) uzerinde 
-echo oturum actiginizdan emin olun. 
+echo Uzantinin guvenli ve dogru calisabilmesi icin %browser% tarayiciniz uzerinden 
+echo Steam (steamcommunity.com) hesabiniza halihazirda giris yapmis olmaniz gerekmektedir.
 echo.
-echo Eger oturumunuz acik degilse eklenti calisirken kimliginizi algilayamaz.
+echo Su anda Steam hesabiniza giris yapmis durumda misiniz?
 echo.
-set /p steam="Steam'e giris yaptiniz mi? (E / H): "
+echo   [1] Evet, giris yaptim. (Kuruluma devam et)
+echo   [2] Hayir, henüz yapmadim. (Steam giris sayfasini ac)
+echo.
+set /p steam="Seciminiz (1/2): "
 
-if /i "%steam%"=="H" (
+if "%steam%"=="2" (
     echo.
-    echo Lutfen once tarayicidan Steam'e giris yapin, ardindan bu ekrana donup devam edin.
+    echo Bilgi: Tarayicinizda Steam giris sayfasi aciliyor...
+    echo Lutfen hesabiniza giris yaptiktan sonra bu ekrana donerek asistanin
+    echo yonergelerini izlemeye devam ediniz.
     start https://steamcommunity.com/login/home/
     pause
     goto steam_kontrol
 )
+if not "%steam%"=="1" goto steam_kontrol
 
 cls
-echo =====================================================================================
-echo                      SON ADIM: SURUKLE VE BIRAK
-echo =====================================================================================
+echo ==========================================================================================
+echo                          ADIM 2: UZANTI ENTEGRASYONU
+echo ==========================================================================================
 echo.
-echo Simdi sihirbaz otomatik olarak su iki pencereyi acacak:
-echo 1. %browser% Eklentiler Sayfasi
-echo 2. Kurulum Klasoru (Mavi ile secili olan "dist" klasoru)
+echo Sistem tarafindan su iki pencere otomatik olarak acilacaktir:
+echo   1. %browser% Eklentiler (Extensions) Sayfasi
+echo   2. RepBot Pro Kurulum Klasoru (Mavi renk ile isaretlenmis 'dist' klasoru)
 echo.
-echo YAPMANIZ GEREKENLER:
-echo --------------------
-echo Adim 1: Tarayicida sag ustten "Gelistirici Modu" (Developer Mode) acin.
-echo Adim 2: Acilan mavi secili [dist] klasorunu farenizle tutup, 
-echo         tarayicinin icine SURUKLEYIN ve BIRAKIN!
+echo LUTFEN ASAGIDAKI ISLEMLERI UYGULAYINIZ:
+echo --------------------------------------------------------------------------------------
+echo  - Tarayici sayfasinin sag ust kosesinde bulunan "Gelistirici Modu" (Developer Mode)
+echo    secenegini aktif hale getiriniz.
+echo  - Ekranda acilan klasor penceresindeki mavi renkli "dist" klasorunu farenizle tutup,
+echo    tarayicida acilan Eklentiler sayfasinin icerisine surukleyip birakiniz.
+echo --------------------------------------------------------------------------------------
 echo.
-echo (Kurulum bu kadar! Sonrasinda bu siyah pencereyi kapatabilirsiniz.)
+echo (Entegrasyon islemi bu kadar. Ardindan bu asistani kapatabilirsiniz.)
 echo.
 pause
 
 echo.
-echo Pencereler aciliyor, lutfen bekleyin...
+echo Pencereler hazirlaniyor, lutfen bekleyiniz...
 start %browser% "%ext_url%"
 timeout /t 2 >nul
 explorer /select,"%~dp0dist"
 
 echo.
-echo Tebrikler! Eklenti tarayiciya eklendi.
-echo Tarayicida Alt + R tuslarina basarak RepBot'u acabilirsiniz.
+echo Entegrasyon tamamlanmistir. 
+echo Tarayiciniz uzerinde 'Alt + R' kisayolunu kullanarak veya uzantilar 
+echo menusunden RepBot ikonuna tiklayarak arayuze ulasabilirsiniz.
 pause >nul
