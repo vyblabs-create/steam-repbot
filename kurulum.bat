@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 >nul
 color 0B
 title RepBot Pro V2.0.1 - Kurulum Asistani
 mode con: cols=90 lines=30
@@ -73,6 +74,8 @@ echo   2. RepBot Pro Kurulum Klasoru (Mavi renk ile isaretlenmis 'dist' klasoru)
 echo.
 echo LUTFEN ASAGIDAKI ISLEMLERI UYGULAYINIZ:
 echo --------------------------------------------------------------------------------------
+echo  - (Oneri: Eger tarayiciniz 'Kim kullaniyor?' diye profil secmenizi isterse,
+echo    lutfen Steam'e giris yaptiginiz profilinizi seciniz.)
 echo  - Tarayici sayfasinin sag ust kosesinde bulunan "Gelistirici Modu" (Developer Mode)
 echo    secenegini aktif hale getiriniz.
 echo  - Ekranda acilan klasor penceresindeki mavi renkli "dist" klasorunu farenizle tutup,
